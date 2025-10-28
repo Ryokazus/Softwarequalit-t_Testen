@@ -1,19 +1,22 @@
 package Aufgabe_2;
 
-public class MatMul_v2 {
+import java.time.*;
+
+public class MatMult {
 
   public static void main(String[] args){
-    int[][] a = createMatrix(20)
+    int[][] a = createMatrix(20);
   	Duration previousTime = measureMatmul(a, a);
-  	for(int n = 40; n <= 1280; i = i * i){
+  	for(int n = 40; n <= 1280; n = n + n){
   		a = createMatrix(n);
   		Duration currentTime = measureMatmul(a, a);
-  		System.out.println("Zeit Vergleich für n = " + n + ": " (currentTime/previousTime))
+		double ratio = (double) currentTime.toNanos()/previousTime.toNanos();
+		System.out.printf("Zeit Vergleich für n = %d: %.2f%n", n, ratio);
   		previousTime = currentTime;
   	}
   }
 
-  private int[][] createMatrix(int n) {
+  private static int[][] createMatrix(int n) {
   	int[][] matrix = new int[n][n];
   	for (int i = 0; i < n; i++) {
       for (int j = 0; j < n; j++) {
@@ -24,15 +27,16 @@ public class MatMul_v2 {
   }
 
 
-  static public Duration measureMatmul(int a[][], int b[][]) {
+  public static Duration measureMatmul(int a[][], int b[][]) {
   	Instant start = Instant.now();
   	int c[][] = matmult(a, b);
+	//System.out.println("Skalarprodukt für n = " + a.length + ": " + a[0][0]);
   	Instant stop = Instant.now();
   	return Duration.between(start,stop);
   }
 
 
-  private int[][] transponieren(int[][] a){
+  private static int[][] transponieren(int[][] a){
   	int[][] transponiert = new int[a[0].length][a.length];
   	for (int i = 0; i < a.length; i++) {
               for (int j = 0; j < a[0].length; j++) {
@@ -43,15 +47,15 @@ public class MatMul_v2 {
   }
 
   
-  private int[][] matmul(int[][] a, int[][] b){
-  	int[][] c = new int[][];
+  private static int[][] matmult(int[][] a, int[][] b){
+  	int n = a.length;
+	int[][] c = new int[n][n];
   	int[][] bTransponiert = transponieren(b);
-  	for(int i = 0; i < a.length;i++){				//Zeilen
-  		for(int j = 0; i < a.length; i++) {			//Spalten
-  			c[i][j] = dotProdukt(a, bTransponiert);
-  			System.out.print(" [ " + c[i][j] + "] ")
+
+  	for(int i = 0; i < n;i++){				//Zeilen
+  		for(int j = 0; j < n; j++) {			//Spalten
+  			c[i][j] = MatMul.dotProduct(a[i], bTransponiert[j]);
   		}
-  		System.out.println("");
   	}
   	return c;
   }
