@@ -14,9 +14,7 @@ public class Primes {
         //Primzahlen zählen
         int count = 0;
         for(int i = 0; i <= n; i++){
-            if (numbers[i] == false) {
-                count++;
-            }
+            if (numbers[i]) count++;
         }
         System.out.println("Es gibt " + count + " Primzahlen von 0 bis " + n );
 
@@ -24,7 +22,7 @@ public class Primes {
         int[] primeInt = new int[count];
         count = 0;
         for (int i = 0; i < numbers.length; i++) {
-            if (numbers[i] == false) {
+            if (numbers[i]) {
                 primeInt[count] = i;
                 count++;
             }
@@ -38,20 +36,20 @@ public class Primes {
 
         //erstmal ganzen array auf false setzen (werden dann die primzahlen)
         for (int p = 0; p <= n; p++) {
-            numbers[p] = false;
+            numbers[p] = true;
         }
-        numbers[0] = true;
-        numbers[1] = true;
+        numbers[0] = false;
+        numbers[1] = false;
 
         for (int i = 2; i <=n;){
             //die vielfachen markieren
             if ((i * i) < n) {
                 for (int j = i * i; j <= n; j = (j + i)) {
-                    numbers[j] = true;
+                    numbers[j] = false;
                 }
                 //kleinste Zahl die noch nicht markiert ist
                 for (int k = i; k <= n; k++) {
-                    if (numbers[k] == false) {
+                    if (numbers[k]) {
                         i = k;
                         break;
                     }
