@@ -13,7 +13,7 @@ public class Primes {
         System.out.println(Arrays.toString(numbers));
         //Primzahlen zählen
         int count = 0;
-        for(int i = 0; i < n; i++){
+        for(int i = 0; i <= n; i++){
             if (numbers[i] == false) {
                 count++;
             }
@@ -23,7 +23,7 @@ public class Primes {
         // PrimzahlArray erstellen
         int[] primeInt = new int[count];
         count = 0;
-        for (int i = 0; i < primeInt.length; i++) {
+        for (int i = 0; i < numbers.length; i++) {
             if (numbers[i] == false) {
                 primeInt[count] = i;
                 count++;
@@ -40,15 +40,16 @@ public class Primes {
         for (int p = 0; p <= n; p++) {
             numbers[p] = false;
         }
+        numbers[0] = true;
+        numbers[1] = true;
 
         for (int i = 2; i <=n;){
             //die vielfachen markieren
-            if (i * i < n) {
+            if ((i * i) < n) {
                 for (int j = i * i; j <= n; j = (j + i)) {
                     numbers[j] = true;
                 }
                 //kleinste Zahl die noch nicht markiert ist
-                i++;
                 for (int k = i; k <= n; k++) {
                     if (numbers[k] == false) {
                         i = k;
@@ -56,7 +57,7 @@ public class Primes {
                     }
                 }
             }
-
+            i++;
         }
         return numbers;
     }
