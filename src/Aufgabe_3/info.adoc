@@ -1,0 +1,39 @@
+1.) a) Unterschied abstrakter Datentyp und Datenstruktur: + 
+Eine abstrakter Datentyp ist ein Datentyp (hier Stack) der Operationen beschreibt (z.B. push 
+und pop), bei der wir jedoch keine konkrete Implementierung haben (Interface , Methoden ohne Inhalt). 
+Die abstrakte Datenstruktur (hier ArrayStack) hingegen implementiert dann die Datentypen
+(hier Stack) und beschreiben dann was die Operation machen.
+
+b)
+
+1. 0123
+2. 012
+3. 01
+4. 0
+5. null
+
+6. 5678
+7. 567
+8. 56
+9. 5
+10. null
+
+c) anderen: mehrmals pushen und poppen ? +
+   bei 4 3 2 1 0 5 6 7 8 9 nur einmal pop-Prozess (4 3 2 1 0)und danach push Prozess (5 6 7 8 9)
+
+
+2.) a) Vergleich ArrayQueue mit ArrayStack, Erläuterung n, start und end: +
+Beide werden als Array Liste gespeichert. Bei dem Stack pushen wir auf das letzte Element, 
+bei Queue hingegen auf das erste. Bei pop wird bei beiden das letzte Element genommen. Der
+Während der Stack nicht geprüft wird ob er voll ist, wird bei Queue dies geprüft.
+
+n -> Länge des Arrays + 
+start -> erste eingefügtes Element, wo Elemente weggenommen werden können +
+end -> letztes eingefügtes Element, wo neue hinzugefügt werden
+
+b) erste Möglich, zweite glaube auch (allgemein nicht ganz verstanden)
+
+
+3.)
+a) Es kommt zum Overflow (Index out of Bounds Exeption)
+
