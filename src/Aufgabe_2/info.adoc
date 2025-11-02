@@ -1,0 +1,4 @@
+1.) a) 2n-1 Operationen
+b) O=(n) -> linear
+c) 2x2 -> 12 Opertionen (3*n^2); 3x3 -> 27 Operationen (3*n^2)
+d) 3*n^2 Operationen (Laufzeitkomplexität: O=(n^2))
