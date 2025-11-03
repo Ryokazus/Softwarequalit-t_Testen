@@ -18,7 +18,7 @@ b)
 9. 5
 10. null
 
-c) anderen: mehrmals pushen und poppen ? +
+c) 1)  0 und 1 schon gepusht, wenn ein für 0 geppt, kann 1 nicht mehr hinzugefügt werden
    bei 4 3 2 1 0 5 6 7 8 9 nur einmal pop-Prozess (4 3 2 1 0)und danach push Prozess (5 6 7 8 9)
 
 
