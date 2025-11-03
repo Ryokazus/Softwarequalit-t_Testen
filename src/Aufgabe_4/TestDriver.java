@@ -47,12 +47,12 @@ public class TestDriver {
  * @return
  */
    public static <T extends Comparable<T>> Duration measure(Sorter<T> sort, T[] data, int n) {
-        var tspan = Duration.ZERO;
+        Duration tspan = Duration.ZERO;
         for (int i = 0; i < n; i++) {
-            var copy = data.clone();
-            var start = Instant.now();
+            T copy = data.clone();
+            Duration start = Instant.now();
             sort.sort(copy);
-            var end = Instant.now();
+            Duration end = Instant.now();
             tspan = tspan.plus(Duration.between(start, end));
             }
         return tspan.dividedBy(n);
