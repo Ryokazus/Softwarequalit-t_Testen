@@ -49,10 +49,10 @@ public class TestDriver {
    public static <T extends Comparable<T>> Duration measure(Sorter<T> sort, T[] data, int n) {
         Duration tspan = Duration.ZERO;
         for (int i = 0; i < n; i++) {
-            T copy = data.clone();
-            Duration start = Instant.now();
+            T[] copy = data.clone();
+            Instant start = Instant.now();
             sort.sort(copy);
-            Duration end = Instant.now();
+            Instant end = Instant.now();
             tspan = tspan.plus(Duration.between(start, end));
             }
         return tspan.dividedBy(n);
